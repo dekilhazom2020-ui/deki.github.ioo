@@ -1,11 +1,11 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deki Lhazom's Portfolio</title>
     <!-- Use the Inter font for a clean, modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN for easy, utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -25,9 +25,9 @@
         
         /* Styles for main content cards (profile and section) */
         .section-card, .profile-card {
-            background-color: #ffffff; /* Changed to Pure White for maximum brightness in light mode */
+            background-color: #ffffff; /* Pure White for light mode */
             border: 1px solid #d2c8e3; /* Soft border color */
-            transition: background-color 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
         .dark .section-card, .dark .profile-card {
             background-color: #55446e; /* Brighter Dark Violet for dark mode contrast */
@@ -53,52 +53,33 @@
             color: #d8c3f9; /* Light purple */
         }
 
-        /* --- HYPERLINK STYLES (NEW) --- */
-        /* Style for all internal links inside content sections to make them distinctly blue */
+        /* --- HYPERLINK STYLES --- */
         .page-section a:not(.nav-link) {
-            color: #3b82f6; /* Tailwind blue-500 */
+            color: #3b82f6; 
             text-decoration: underline;
-            transition: color 0.2s ease;
-            font-weight: 600; /* Make link text slightly bolder */
+            font-weight: 600; 
         }
         .page-section a:not(.nav-link):hover {
-            color: #2563eb; /* Tailwind blue-600 */
+            color: #2563eb; 
         }
         .dark .page-section a:not(.nav-link) {
-            color: #60a5fa; /* Tailwind blue-400 for better visibility in dark mode */
+            color: #60a5fa; 
         }
         .dark .page-section a:not(.nav-link):hover {
-            color: #93c5fd; /* Tailwind blue-300 */
+            color: #93c5fd; 
         }
         /* --- END HYPERLINK STYLES --- */
-
-        /* --- Icon Motion Styles --- */
-        /* Apply smooth transition to all icons within cards */
-        .icon-motion-container svg {
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth cubic transition */
-        }
-
-        /* Define the motion effect on card hover (desktop) and touch (mobile) */
-        .section-card:hover .icon-motion-container svg,
-        .section-card:focus-within .icon-motion-container svg {
-            transform: scale(1.15) rotate(-5deg); /* Scale up 15% and slightly rotate */
-            color: #4f46e5; /* Change color for extra feedback (Tailwind blue-600) */
-        }
-        /* Restore color on dark mode hover */
-        .dark .section-card:hover .icon-motion-container svg,
-        .dark .section-card:focus-within .icon-motion-container svg {
-             color: #93c5fd; /* Light blue for contrast */
-        }
-        /* --- End Icon Motion Styles --- */
     </style>
 </head>
 <body class="light">
 
     <!-- Dark Mode Toggle Button -->
     <button id="theme-toggle" class="fixed bottom-6 right-6 p-4 rounded-full shadow-lg transition-colors duration-300 z-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 bg-blue-500 hover:bg-blue-600 text-white dark:bg-gray-700 dark:hover:bg-gray-800">
+        <!-- Sun icon visible by default in light mode -->
         <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
+        <!-- Moon icon hidden by default in light mode -->
         <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
@@ -120,16 +101,17 @@
     </header>
 
     <main class="container mx-auto px-6 py-12 lg:py-20 max-w-5xl">
-
+        
         <!-- Home Section -->
         <section id="home" class="page-section active">
             <h1 class="page-title text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight mb-4 text-center">Welcome to My Journey</h1>
             <div class="profile-card p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <!-- NEW: Profile Image Placeholder for Home Section -->
                 <div class="flex justify-center mb-6">
-                    <!-- Home/Introduction Icon: Shield/Protection -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
+                    <img src="https://placehold.co/128x128/6b46c1/ffffff?text=Deki+Lhazom" 
+                         alt="Your Profile Photo for Home Page" 
+                         class="w-32 h-32 object-cover rounded-full shadow-xl border-4 border-purple-300 dark:border-purple-600 transition-transform duration-300 hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/128x128/6b46c1/ffffff?text=Deki+Lhazom';"/>
                 </div>
                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg text-center">Hello, my name is Deki Lhazom. I am from Narang village in Mongar District, born on April 28, 2006. Since beginning my educational journey, I've discovered the importance of self-growth, resilience, and contributing to the world around me. This website is a tapestry of my experiences, from sports and cultural activities to leadership roles and community projects. It's a journey of embracing my unique self while striving to make a positive impact. Thank you for visiting!</p>
             </div>
@@ -139,13 +121,12 @@
         <section id="about" class="page-section">
             <h1 class="page-title text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">About My Journey</h1>
             <div class="section-card p-6 md:p-8 rounded-lg shadow-sm">
-                <!-- Education Icon: Graduation Cap -->
-                <div class="flex justify-center mb-6 icon-motion-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                        <path d="M12 14l6.16 3.422a12.083 12.083 0 01-6.16 2.576l-6.16-3.422A12.083 12.083 0 0112 14z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zM12 14v6M9 19h6" />
-                    </svg>
+                <!-- Profile Photo Placeholder for About Section -->
+                <div class="flex justify-center mb-6">
+                    <img src="https://placehold.co/96x96/4c51bf/ffffff?text=Profile+Photo" 
+                         alt="Your Profile Photo or image related to Education" 
+                         class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 hover:scale-105"
+                         onerror="this.onerror=null; this.src='https://placehold.co/96x96/4c51bf/ffffff?text=Profile+Photo';"/>
                 </div>
                 <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Early Life & Education</h2>
                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-base">Born on April 28, 2006, in Narang village, Mongar District, I began my schooling at Narang Primary in 2013. Though I was often quiet, I always said yes to leadership roles and group activities, which helped me grow. The Bhutan Baccalaureate curriculum and the support of my teachers have been vital in shaping my path. Joining the Royal Academy in 2020 taught me that being educated is more than just gaining knowledge; it's about self-discovery and meaningful experiences. I've been on a continuous journey of self-growth, especially through the five areas of development, learning to be a person of substance.</p>
@@ -157,80 +138,85 @@
             <h1 class="page-title text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">My Passions</h1>
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Reading & Inspiration Card -->
-                <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <!-- Reading Icon: Open Book -->
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 4h4a2 2 0 012 2v4M8 4H4a2 2 0 00-2 2v4m16 8v4a2 2 0 01-2 2h-4M4 20v-4a2 2 0 012-2h4" />
-                        </svg>
+                <div class="section-card group p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
+                    <!-- Image Block - Now using a generic placeholder -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/96x96/7c3aed/ffffff?text=Reading" 
+                             alt="Image related to Reading & Inspiration" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/7c3aed/ffffff?text=Reading';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Reading & Inspiration</h2>
                     <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-base">I find immense value in reading, especially **self-help** and **inspiring fiction**. These books serve as powerful guides, helping me navigate life's challenges, gain new perspectives, and reinforce the values that keep me focused on the right track. It is a vital tool for continuous self-improvement and emotional intelligence, constantly fueling my personal development.</p>
                 </div>
                 <!-- Running & Sports Card -->
-                <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <!-- Running & Sports Icon: Dynamic Runner/Athlete -->
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                <div class="section-card group p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
+                    <!-- Image Block - Replace src with your Sports/Running image -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/96x96/4ade80/ffffff?text=Running" 
+                             alt="Image related to Running & Sports" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/4ade80/ffffff?text=Running';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Running & Sports</h2>
                     <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-base">From a young age, I've been passionate about sports and running. Each run, whether a cross-country event or a half marathon, has been a battle between my body and mind, teaching me discipline, patience, and resilience. As a member of my school's <strong>basketball</strong> and <strong>football</strong> teams, I learned the importance of teamwork, sportsmanship, and endurance. I realized that true success lies in finishing strong, breaking personal barriers, and supporting my teammates.</p>
                 </div>
                 <!-- Bhutanese Culture Card -->
-                <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <!-- Culture Icon: Heart/Traditional Art -->
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-                        </svg>
+                <div class="section-card group p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
+                    <!-- Image Block - Replace src with your Culture/Traditional Dance image -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/96x96/facc15/333333?text=Culture" 
+                             alt="Image related to Bhutanese Culture & Traditions" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/facc15/333333?text=Culture';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Bhutanese Culture & Traditions</h2>
                     <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-base">I am deeply passionate about my Bhutanese culture and traditions. I have actively participated in indigenous games like <strong>Degor</strong> and performed traditional dances during special occasions. These experiences have not only strengthened my cultural pride and discipline but have also deepened my appreciation for the meaningful connections our traditions create. Representing my school in a traditional dance exchange program was an enriching experience that allowed me to share our heritage with others.</p>
                 </div>
                 <!-- Psychology Card -->
-                <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <!-- Psychology Icon: Mind/Brain -->
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 19c0-.667-2-2-2-4s2-3 2-4m6 8c0-.667 2-2 2-4s-2-3-2-4M12 5a3 3 0 013 3v8a3 3 0 01-3 3 3 3 0 01-3-3V8a3 3 0 013-3zM12 5V2M12 22v-3" />
-                        </svg>
+                <div class="section-card group p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
+                    <!-- Image Block - Replace src with your Psychology image -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/96x96/f97316/ffffff?text=Mind" 
+                             alt="Image related to Psychology" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/f97316/ffffff?text=Mind';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Psychology</h2>
                     <p class="text-700 dark:text-gray-300 leading-relaxed text-base">I have a profound fascination with understanding human behavior and mental wellness.</p>
                 </div>
                 <!-- Psychiatry Card -->
-                <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <!-- Psychiatry Icon: Medical/Heart-Mind -->
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-.318-.318zM12 12V3m-4 4h8" />
-                        </svg>
+                <div class="section-card group p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
+                    <!-- Image Block - Replace src with your Psychiatry image -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/96x96/ef4444/ffffff?text=Health" 
+                             alt="Image related to Psychiatry" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/ef4444/ffffff?text=Health';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Psychiatry</h2>
                     <p class="text-700 dark:text-gray-300 leading-relaxed text-base">My interest in the medical side of mental health explores how it affects the mind.</p>
                 </div>
                 <!-- Philosophy Card -->
-                <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <!-- Philosophy Icon: Reflection/Questioning -->
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9.228a4.24 4.24 0 005.941 5.941l1.414-1.414a6 6 0 00-8.485-8.485L4 12m14 0l-1.414 1.414a6 6 0 01-8.485 8.485l-1.414-1.414a4.24 4.24 0 01-5.941-5.941" />
-                        </svg>
+                <div class="section-card group p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
+                    <!-- Image Block - Replace src with your Philosophy image -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/96x96/8b5cf6/ffffff?text=Wisdom" 
+                             alt="Image related to Philosophy" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/8b5cf6/ffffff?text=Wisdom';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Philosophy</h2>
                     <p class="text-700 dark:text-gray-300 leading-relaxed text-base">I am on a pursuit to grapple with life's big questions and explore different ways of thinking.</p>
                 </div>
                 <!-- Iconography Card -->
-                <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <!-- Iconography Icon: Eye/Symbol Study -->
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
+                <div class="section-card group p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
+                    <!-- Image Block - Replace src with your Iconography image -->
+                    <div class="flex justify-center mb-6">
+                        <img src="https://placehold.co/96x96/06b6d4/ffffff?text=Symbol" 
+                             alt="Image related to Iconography" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/06b6d4/ffffff?text=Symbol';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Iconography</h2>
                     <p class="text-700 dark:text-gray-300 leading-relaxed text-base">I love studying how symbols and images shape our beliefs and cultures.</p>
@@ -244,11 +230,12 @@
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Athletic Achievements Card -->
                 <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <!-- Athletic Achievements Icon: Trophy/Award -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21l-7-7-1.414 1.414L12 24.314l8.414-8.414L21 14l-7 7V3h2V2.5A.5.5 0 0014 2H10a.5.5 0 00-.5.5V3h2V21z" />
-                        </svg>
+                    <div class="flex justify-center mb-6">
+                        <!-- Image placeholder for Athletics -->
+                        <img src="https://placehold.co/96x96/34d399/ffffff?text=Athletics+Photo" 
+                             alt="Photo representing Athletic Achievements" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/34d399/ffffff?text=Athletics';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Athletic Achievements</h2>
                     <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
@@ -256,13 +243,14 @@
                         <li><strong>Paro Women’s Championship:</strong> Won the championship and represented Paro District at the national level in 2024.</li>
                     </ul>
                 </div>
-                <!-- Cultural Achievements Card -->
+                <!-- Cultural Achievements Card (Icon replaced with image placeholder) -->
                 <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <!-- Cultural Achievements Icon: World/Globe -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h2m2 0h2M19 5h2m-2 0h-2m-1 7l-2 2-2-2m-1 0l-2 2-2-2m-1 0l-2 2-2-2M12 21c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zM12 21v-8m0-8h11M12 13h11M12 5h11" />
-                        </svg>
+                    <div class="flex justify-center mb-6">
+                        <!-- Image placeholder for Culture -->
+                        <img src="https://placehold.co/96x96/facc15/333333?text=Culture+Photo" 
+                             alt="Photo representing Cultural Achievements" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/facc15/333333?text=Culture';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Cultural Achievements</h2>
                     <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
@@ -270,13 +258,14 @@
                         <li><strong>Traditional Dance Exchange Program:</strong> Represented my school, sharing Bhutanese heritage and learning from other communities.</li>
                     </ul>
                 </div>
-                <!-- Leadership Achievements Card -->
+                <!-- Leadership Achievements Card (Icon replaced with image placeholder) -->
                 <div class="section-card p-6 md:p-8 rounded-lg shadow-sm" tabindex="0">
-                    <div class="flex justify-center mb-6 icon-motion-container">
-                        <!-- Leadership Achievements Icon: Path/Ambassador -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-800 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zM12 21v-8m0-8h11M12 13h11M12 5h11" />
-                        </svg>
+                    <div class="flex justify-center mb-6">
+                        <!-- Image placeholder for Leadership -->
+                        <img src="https://placehold.co/96x96/8b5cf6/ffffff?text=Leadership+Photo" 
+                             alt="Photo representing Leadership Achievements" 
+                             class="w-24 h-24 object-cover rounded-xl shadow-lg border-2 border-purple-400 transition-transform duration-300 hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://placehold.co/96x96/8b5cf6/ffffff?text=Leadership';"/>
                     </div>
                     <h2 class="text-2xl font-semibold mb-3 text-gray-800 dark:text-white">Leadership Achievements</h2>
                     <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
@@ -353,21 +342,23 @@
                 setActiveLink(initialLink);
             }
 
-                           sunIcon.classList.remove('hidden');
+            // Dark Mode Toggle Logic
+            themeToggle.addEventListener('click', () => {
+                if (body.classList.contains('light')) {
+                    body.classList.remove('light');
+                    body.classList.add('dark');
+                    // Show moon, hide sun for dark mode
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                } else {
+                    body.classList.remove('dark');
+                    body.classList.add('light');
+                    // Show sun, hide moon for light mode
+                    sunIcon.classList.remove('hidden');
                     moonIcon.classList.add('hidden');
                 }
             });
         });
     </script>
 </body>
-</html> // Dark Mode Toggle Logic
-            themeToggle.addEventListener('click', () => {
-                if (body.classList.contains('light')) {
-                    body.classList.remove('light');
-                    body.classList.add('dark');
-                    sunIcon.classList.add('hidden');
-                    moonIcon.classList.remove('hidden');
-                } else {
-                    body.classList.remove('dark');
-                    body.classList.add('light');
-    
+</html>
